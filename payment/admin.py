@@ -3,7 +3,7 @@ from django.contrib import admin
 # Register your models here.
 from.models import Payment
 class PaymentAdmin(admin.ModelAdmin):
-    list_payment=("amount","payment_status","payment_date","method")
+    list_display=("amount","payment_status","payment_date","method")
 
 
 
