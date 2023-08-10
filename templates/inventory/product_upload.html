@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=
+    , initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #c5c1c1;
+            padding: 20px;
+            margin: 0;
+        }
+
+        .upload_form {
+            max-width: 500px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .upload_form label {
+            display: block;
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+
+        .upload_form input[type="text"],
+        .upload_form textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ddd;
+            border-radius: 3px;
+            font-size: 16px;
+        }
+
+        .upload_form textarea {
+            resize: vertical;
+        }
+
+        .button_submit {
+            display: block;
+            width: 100%;
+            padding: 12px 20px;
+            font-size: 16px;
+            font-weight: bold;
+            color: #fff;
+            background-color: #787e85;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .button_submit:hover {
+            background-color: #80858a;
+        }
+    </style>
+</head>
+<body>
+    <form method="POST"  class="upload_form">
+     {%csrf_token%}
+     
+     {{form.as_p}}
+
+    <button type="submit" class="button_submit">Save</button>
+    </form>
+</body>
+</html>

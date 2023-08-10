@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product_detail</title>
+    <style>
+        /* Internal CSS */
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 50px;
+            text-align: center;
+        }
+
+        h1, h2 {
+            text-align: center;
+        }
+
+        img {
+            display: block;
+            max-width: 20%;
+            margin: 5px auto;
+            border: 2px solid #ddd;
+            border-radius: 5px;
+        }
+
+        p {
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        span {
+            font-size: 20px;
+            font-weight: bold;
+            color: #000000;
+        }
+
+        button {
+            display: block;
+            margin: 20px auto;
+            padding: 12px 20px;
+            font-size: 16px;
+            font-weight: bold;
+            color: #fff;
+            background-color:  rgb(32, 219, 88);;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #c93e55;
+        }
+    </style>
+</head>
+</head>
+<body>
+    <h1>Product(Fresh Fruit)</h1>
+    <h2>{{product.title}}</h2>
+    <img src="{{product.image.url}}"/>
+    <p>{{product.description}}</p>
+    <span>{{product.price}}</span>
+    <button> Add to cart</button>
+</body>
+</html>
