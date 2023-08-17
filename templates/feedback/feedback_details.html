@@ -6,13 +6,11 @@
     <title>Document</title>
 </head>
 <body>
-    <h2>Add Product </h2>
-    <form method="POST"  class="upload_form">
+    <h1>Add feedback</h1>
+    <form method="POST" class="upload_form">
         {%csrf_token%}
-        
         {{form.as_p}}
-   
-       <button type="submit" class="button_submit">Delete</button>
-       </form>
+        <button type="submit">Submit</button>
+    </form>
 </body>
 </html>

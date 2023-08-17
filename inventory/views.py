@@ -38,7 +38,7 @@ def product_update_view(request, id):
 def product_delete_view(request, id):
     product = Product.objects.get(id=id)
     product.delete() 
-    return redirect('product_list')
+    return redirect('product_list.html')
 
     
     

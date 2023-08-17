@@ -1,16 +1,17 @@
-from .forms import CartUploadForm
-from django.shortcuts import render, get_object_or_404, redirect
+from django.shortcuts import render, redirect
 from .models import Cart
-# from .forms import CartForm
-
-# ..........................
+from .forms import CartForm
+def cart_view(request):
+    cart_items = Cart.objects.all()
+    return render(request, 'cart/cart_view.html', {'cart_items': cart_items})
 def add_to_cart(request):
+    cart_items = Cart.objects.all()
     if request.method == 'POST':
-        form = ProductCartForm(request.POST)
+        form = CartForm(request.POST)
         if form.is_valid():
             form.save()
-            return redirect('product_detail_view')
+            return redirect("cart_view")
     else:
-        form = CartUploadFormForm()
-    return render(request, 'cart/add_to_cart.html', {'form': form})
+        form = CartForm()
+    return render(request, "cart/add_to_cart.html", {'form': form})
 
