@@ -27,7 +27,7 @@
         }
         .order-item a {
             display: inline-block;
-            background-color: #2edd63;
+            background-color: #58da7f;
             color: #fff;
             padding: 5px 10px;
             text-decoration: none;
@@ -42,7 +42,6 @@
             {% for order in orders %}
             <li class="order-item">
             Order Status: {{ order.order_status}}<br>
-            Delivery: ${{ order.delivery }}<br>
             Payment Details: {{ order.payment_details }}<br>
             
             

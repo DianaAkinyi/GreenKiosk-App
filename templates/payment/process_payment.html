@@ -5,61 +5,75 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
-         body {
+        body {
             font-family: Arial, sans-serif;
             background-color: #f5f5f5;
             margin: 0;
-        }
-        .payment-form-container {
+            padding: 0;
             display: flex;
             justify-content: center;
             align-items: center;
             height: 100vh;
         }
-        .payment-form {
-            border: 1px solid #ccc;
-            padding: 20px;
-            border-radius: 5px;
+
+        .container {
+            background-color: #c7e67f;
+            border-radius: 8px;
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-            background-color: white;
+            padding: 20px;
             width: 400px;
         }
-        .payment-form h1 {
-            font-size: 24px;
-            margin-bottom: 10px;
+
+        h1 {
+            margin-top: 0;
+            text-align: center;
+            color: #333;
         }
-        .payment-form form {
-            text-align: left;
+
+        form {
+            display: flex;
+            flex-direction: column;
         }
-        .payment-form label {
-            display: block;
+
+        label {
+            font-weight: bold;
             margin-bottom: 5px;
         }
-        .payment-form input[type="text"],
-        .payment-form input[type="number"] {
+
+        input[type="text"],
+        input[type="number"],
+        select {
             padding: 8px;
-            margin-bottom: 10px;
+            margin-bottom: 15px;
             border: 1px solid #ccc;
-            border-radius: 5px;
-            width: 100%;
+            border-radius: 4px;
         }
-        .payment-form button {
-            background-color: #007bff;
+
+        button {
+            background-color: #66d45c;
             color: #fff;
-            padding: 10px 20px;
+            padding: 10px;
             border: none;
-            border-radius: 5px;
+            border-radius: 4px;
             cursor: pointer;
+            transition: background-color 0.3s ease;
         }
-    </style>
+
+        button:hover {
+            background-color: #e0713d;
+        }
     </style>
 </head>
+
 <body>
-    <h1>Process Payment for Order</h1>
-    <form method="post">
-        {% csrf_token %}
-        {{ form.as_p }}
-        <button type="submit">Submit</button>
-    </form>
+    <div class="container">
+        <h1>Process Payment for Order</h1>
+        <form method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit">Submit</button>
+        </form>
+    </div>
 </body>
+
 </html>
