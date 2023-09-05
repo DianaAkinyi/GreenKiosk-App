@@ -42,13 +42,3 @@ def product_update_view(request, id):
 #         if form.is_valid():
 #             product.delete() 
 #     return render(request,"inventory/produc_delete.html")
-# def product_delete(request, id):
-#     product = Product.object.get(id=id)
-#     if request.method == 'POST':
-#         product.delete()
-#         return redirect("product_list")
-#     # If the request method is not POST, render a confirmation page.
-#     return render(request, 'inventory/product_delete.html', {'product': product})
-
-    
-    

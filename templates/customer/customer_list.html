@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Customer Detail</title>
+    <title>Customer List</title>
     {% load static %}
     <link rel="stylesheet" href="{% static 'styles.css' %}">
     <style>
@@ -38,27 +38,29 @@
             border-radius: 10px;
             box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
         }
-        .customer-detail {
-            padding: 20px;
-            background-color: #fff;
-            border-radius: 10px;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-            margin-top: 20px;
+        .customer-list {
+            margin-bottom: 20px;
+            padding: 10px;
         }
-        .customer-detail h2 {
+        .customer-list h2 {
             color: #EE609C;
         }
-        .customer-info p {
+        .customer-list ul {
+            list-style: none;
+            padding-left: 0;
+        }
+        .customer-list li {
             margin-bottom: 10px;
         }
-        .customer-info strong {
-            color: #EE609C;
+        .customer-list a {
+            color: #F67FA6;
+            text-decoration: none;
         }
-        .edit-link {
+        .create-link {
             text-align: center;
             padding: 10px;
         }
-        .edit-link a {
+        .create-link a {
             background-color: #EE609C;
             color: white;
             text-decoration: none;
@@ -66,7 +68,7 @@
             border-radius: 5px;
             transition: background-color 0.3s;
         }
-        .edit-link a:hover {
+        .create-link a:hover {
             background-color: #F67FA6;
         }
     </style>
@@ -80,16 +82,16 @@
         <a href="{% url 'customer_create' %}">Create Customer</a>
     </nav>
     <div class="container">
-        <div class="customer-detail">
-            <h2>Customer Detail</h2>
-            <div class="customer-info">
-                <p><strong>Name:</strong> {{ customer }}</p>
-                <p><strong>Email:</strong> {{ customer.email }}</p>
-                <p><strong>Phone Number:</strong> {{ customer.phone_number }}</p>
-            </div>
+        <div class="customer-list">
+            <h2>Customer List</h2>
+            <ul>
+                {% for customer in customers %}
+                    <li><a href="{% url 'customer_detail' customer.pk %}">{{ customer }}</a></li>
+                {% endfor %}
+            </ul>
         </div>
-        <div class="edit-link">
-            <a href="{% url 'customer_edit' customer.pk %}">Edit Customer</a>
+        <div class="create-link">
+            <a href="{% url 'customer_create' %}">Create New Customer</a>
         </div>
     </div>
 </body>

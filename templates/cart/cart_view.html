@@ -49,9 +49,8 @@
     {% for cart_item in cart_items %}
     <li>  <img src="{{cart_item.image.url}}" alt="{{cart_item.name}}" width="50"><br><br>
           Product: {{ cart_item.products }}<br><br>
-          Price: {{cart_item.product }}<br><br>
           Quantity: {{cart_item.quantity }}<br><br>
-          Date_added: {{cart_item.date_added}}<br><br>
+          
     </li>
     <a href="{% url 'place_order' %}" class="custom-button">Place Order</a>
 

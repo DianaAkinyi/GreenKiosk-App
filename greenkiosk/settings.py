@@ -49,6 +49,7 @@ INSTALLED_APPS = [
     'delivery',
     'refund',
     'order',
+    'rest_framework',
 ]
 
 MIDDLEWARE = [
