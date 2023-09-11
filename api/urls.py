@@ -5,6 +5,7 @@ from .views import OrderListView
 from .views import OrderDetailView
 from .views import ProductListView
 from .views import ProductDetailView
+from .views import AddToCartView
 
 urlpatterns =[
     path("customers/",CustomerListView.as_view(), name = "customer_list_view"),
@@ -13,6 +14,7 @@ urlpatterns =[
     path("orders/<int:id>/",OrderDetailView.as_view(),name="order_detail_view"),
     path("products/",ProductListView.as_view(), name="product-list_view"),
     path("products/<int:id>", ProductDetailView.as_view() , name= "product_detail_view"),
+    path("add-to-cart/", AddToCartView.as.view() , name="add-to-cart")
 
     
 

@@ -140,36 +140,14 @@ class ProductListView(APIView):
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
 
-class CartDetailView(APIView):
-    def get(self, request, id, format=None):
-        try:
-            cart = Cart.objects.get(id=id)
-            serializer = CartSerializer(cart)
-            return Response(serializer.data)
-        except Cart.DoesNotExist:
-            return Response("Cart not found", status=status.HTTP_404_NOT_FOUND)
+class AddToCartView(APIView):
+    def post(self, request, format=None):
+        cart_id=request.data["cart_id"]
+        product_id =request.data["product_id"]
+        cart = Cart.objects.get(id=cart_id)
+        product_id = request.data.get('product_id')
+        updated_cart=cart.add_product(product)
+        serializer = CartSerializer(updated_cart)
 
-    def put(self, request, id, format=None):
-        try:
-            cart = Cart.objects.get(id=id)
-            product_id = request.data.get('product_id')
-            try:
-                product = Product.objects.get(id=product_id)
-                cart.products.add(product)
-                cart.save()
-                serializer = CartSerializer(cart)
-                return Response(serializer.data, status=status.HTTP_200_OK)
-            except Product.DoesNotExist:
-                return Response("Product not found", status=status.HTTP_404_NOT_FOUND)
-        except Cart.DoesNotExist:
-            return Response("Cart not found", status=status.HTTP_404_NOT_FOUND)
-
-    def delete(self, request, id, format=None):
-        try:
-            cart = Cart.objects.get(id=id)
-            cart.delete()
-            return Response("Cart deleted", status=status.HTTP_204_NO_CONTENT)
-        except Cart.DoesNotExist:
-            return Response("Cart not found", status=status.HTTP_404_NOT_FOUND)
-
-
+        return Response(serializer.data)
+        
